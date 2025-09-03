@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minimal Gallery • Vue 3</title><script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script><link rel="stylesheet" href="styles.css"></head><body>
+<div id="app">
+<header style="display:flex;justify-content:space-between;padding:16px 24px;background:#0e162b;border-bottom:1px solid #1b2748;">
+<strong>🎨 Minimal Gallery</strong><a href="about.html" style="color:#a5b4fc">About</a></header>
+<main style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:24px">
+  <article v-for="item in items" :key="item.id" class="card">
+    <img :src="item.img" style="width:100%;height:160px;object-fit:cover">
+    <h3 style="margin:10px 12px">{{item.title}}</h3>
+  </article>
+</main>
+</div>
+<script>
+const { createApp, ref } = Vue;
+createApp({
+  setup(){
+    const items = ref([{id:1,title:'River Bend',img:'https://picsum.photos/seed/l1/600/400'},{id:2,title:'Neon Echoes',img:'https://picsum.photos/seed/a4/600/400'}]);
+    return {items}
+  }
+}).mount('#app');
+</script>
+</body></html>
